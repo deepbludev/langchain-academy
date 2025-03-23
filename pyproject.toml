@@ -1,0 +1,68 @@
+[project]
+name = "langchain-academy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-community>=0.3.20",
+    "langchain-core>=0.3.47",
+    "langchain-openai>=0.3.9",
+    "langgraph>=0.3.18",
+    "langgraph-checkpoint-sqlite>=2.0.6",
+    "langgraph-cli[inmem]>=0.1.79",
+    "langgraph-sdk>=0.1.58",
+    "langsmith>=0.3.18",
+    "notebook>=7.3.3",
+    "tavily-python>=0.5.1",
+    "trustcall>=0.0.38",
+    "wikipedia>=1.4.0",
+]
+
+
+# ------------------------------------------------------------
+# -*- Dependency Groups
+# ------------------------------------------------------------
+[dependency-groups]
+dev = ["ipykernel>=6.29.5", "pyright>=1.1.397", "ruff>=0.9.4", "uv>=0.5.29"]
+
+
+# ------------------------------------------------------------
+# -*- Tool: Ruff
+# ------------------------------------------------------------
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint.isort]
+known-first-party = []
+
+[tool.ruff.lint]
+select = [
+  "F", # pyflakes rules
+  "C", # mccabe rules
+  "E", # pycodestyle error rules
+  "W", # pycodestyle warning rules
+  "B", # flake8-bugbear rules
+  "I", # isort rules
+]
+ignore = ["C408"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pycodestyle]
+# Ignore overlong task comments
+ignore-overlong-task-comments = true
+
+[tool.ruff.lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+# Example: Ignore specific rules for specific files
+# "__init__.py" = ["E402"]
